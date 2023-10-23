@@ -3,12 +3,12 @@
 
  <!-- LOGO -->
 
-  <img src="./diagram.jpg" alt="logo" width="140"  height="auto" />
+  <img src="./assets/My Logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
 <!-- MAIN HEADING -->
 
-  <h3><b>Encarta & Shaun Database Diagram</b></h3>
+  <h3><b>Encarta School Library</b></h3>
 
 </div>
 <!-- TABLE OF CONTENTS -->
@@ -19,7 +19,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+  <!-- - [🚀 Live Demo](#live-demo) -->
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -37,10 +37,10 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Encarta & Shaun Database Diagram] <a name="about-project"></a>
+# 📖 [Encarta School Library] <a name="about-project"></a>
 
 
-**Encarta & Shaun Database Diagram** is a project about database schema diagrams.
+**Encarta School Library** is a School Library project for adding Teachers, Students, Books, and creating Rentals.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -49,26 +49,28 @@
 <details>
 <summary>Database</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-    <li><a href="https://dbdiagram.io/">dbdiagram.io</a></li>
-  </ul>
+    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
 </details>
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- **Database Schemas**
-- **Database Diagrams**
+- **List all Books**
+- **List all People**
+- **Create a Person**
+- **Create a Book**
+- **Creat a Rental**
+- **List all Rentals for a given Person id**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+<!-- ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- Live demo coming soon...
+- Live demo coming soon... -->
 <!-- - [Live Demo Link](<replace-with-your-deployment-URL>) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -81,23 +83,23 @@
 To get a local copy up and running clone this repository using:
 
 ```sh
-  cd encarta-shaun-db-diagram
-  git clone https://github.com/anyars-encarta/encarta-shaun-db-diagram.git
+  cd encarta-school-library
+  git clone https://github.com/anyars-encarta/encarta-school-library.git
 ```
 
 ### Prerequisites
 
 In order to run this project you need to install:
 
-> PostgreSQL
+> Ruby
 
 ### Setup
 
 Clone this repository to your desired folder:
 
 ```sh
-  cd encarta-shaun-db-diagram
-  git clone https://github.com/anyars-encarta/encarta-shaun-db-diagram.git
+  cd encarta-school-library
+  git clone https://github.com/anyars-encarta/encarta-school-library.git
 ```
 
 ### Install
@@ -110,7 +112,7 @@ Install this project with:
 
 To run the project, ensure to install:
 
-> PostgreSQL
+> Ruby
 
 ### Run tests
 
@@ -138,19 +140,15 @@ You can deploy this project using:
 - Twitter: [@anyarsencarta](https://twitter.com/anyarsencarta)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/anyars-yussif/)
 
-👤 **Shaun Details**
-
-- GitHub: [@shaun](https://github.com/shaun)
-- Twitter: [@shaun](https://twitter.com/shaun)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/shaun/)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Databse Schema Imports and Exports**
+- [ ] **Add Book Cataloguing**
+- [ ] **Add Book Indexing**
+- [ ] **Add Book Donation**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -176,7 +174,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Special acknowledgement to [@microverseinc](https://github.com/microverseinc) and [@dbdiagram.io](https://dbdiagram.io/)
+> Special acknowledgement to [@microverseinc](https://github.com/microverseinc)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -190,7 +188,11 @@ Contributions, issues, and feature requests are welcome!
 
 - **What new features should be expected in the next release of the project?**
 
-  - I am currently working on adding **Add animal immunization**.
+  - **I am currently working on adding:**
+  
+     - **Book Cataloguing**
+     - **Book Indexing**
+     - **Book Donation**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
