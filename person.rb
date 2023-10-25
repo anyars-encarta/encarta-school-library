@@ -1,6 +1,9 @@
 require './nameable'
 
 class Person < Nameable
+  attr_accessor :name, :age, :rentals
+  attr_reader :id
+
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
@@ -10,11 +13,12 @@ class Person < Nameable
     @rentals = []
   end
 
-  attr_accessor :name, :age, :rentals
-  attr_reader :id
-
   def correct_name
     @name
+  end
+
+  def add_rental(book, date)
+    Rental.new(date, book, self)
   end
 
   private
@@ -25,9 +29,5 @@ class Person < Nameable
 
   def can_use_services?
     true if of_age? || @parent_permission
-  end
-
-  def add_rental(book, date)
-    Rental.new(date, book, self)
   end
 end
