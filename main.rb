@@ -72,7 +72,7 @@ class Main
   end
 
   def list_rentals_for_person
-    list_rentals_for_person(@app)
+    list_rentals_for_person_menu
   end
 
   def quit
