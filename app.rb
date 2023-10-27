@@ -3,6 +3,8 @@ require_relative 'person'
 require_relative 'rental'
 require_relative 'student'
 require_relative 'teacher'
+require_relative 'create_person'
+require_relative 'create_rental'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -27,46 +29,66 @@ class App
     end
   end
 
-  def create_person(age, name, options = {})
-    parent_permission = options.fetch(:parent_permission, true)
-    type = options.fetch(:type, 'student')
-    classroom = options.fetch(:classroom, nil)
-    specialization = options.fetch(:specialization, nil)
+  def create_person()
+    puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
+    type = gets.chomp.to_i
 
-    if type == 'student'
-      person = Student.new(age, classroom, name, parent_permission: parent_permission)
-    elsif type == 'teacher'
-      person = Teacher.new(age, specialization, name, parent_permission: parent_permission)
+    puts 'Enter the person\'s name:'
+    name = gets.chomp
+
+    puts 'Enter the person\'s age:'
+    age = gets.chomp.to_i
+
+    if type == 1
+      person = create_student(name, age)
+    elsif type == 2
+      person = create_teacher(name, age)
     else
-      puts 'Invalid person type'
-      return
+      puts 'Invalid person type. Please try again.'
     end
 
     @people << person
     puts "#{person.class} #{person.name} created with ID: #{person.id}"
   end
 
-  def create_book(title, author)
+  def create_book
+    puts 'Enter the book\'s title:'
+    title = gets.chomp
+
+    puts 'Enter the book\'s author:'
+    author = gets.chomp
     book = Book.new(title, author)
     @books << book
     puts "Book created with title: #{book.title}, author: #{book.author}"
   end
 
-  def create_rental(person_id, book_title, book_author, date)
-    person = @people.find { |p| p.id == person_id }
-    book = @books.find { |b| b.title == book_title && b.author == book_author }
+  def create_rental
+    list_people_for_selection(@people)
+    person_choice = gets.chomp.to_i
+    selected_person = @people[person_choice]
 
-    if person.nil? || book.nil?
-      puts 'Person or book not found'
-      return
+    if selected_person.nil?
+      puts 'Invalid person selection.'
+    else
+      list_books_for_selection(@books)
+      book_choice = gets.chomp.to_i
+      selected_book = @books[book_choice]
     end
-
-    rental = Rental.new(date, book, person)
+    if selected_book.nil?
+      puts 'Invalid book selection.'
+    else
+      puts 'Enter the rental date (YYYY-MM-DD):'
+      date = gets.chomp
+      rental = Rental.new(date, selected_book, selected_person)
+    end
     @rentals << rental
-    puts "Rental created for book: #{book.title}, person: #{person.name}, date: #{rental.date}"
+    puts "Rental created for book: #{selected_book.title}, person: #{selected_person.name}, date: #{rental.date}"
   end
 
-  def list_rentals_for_person(person_id)
+  def list_rentals_for_person()
+    puts 'Enter the person\'s ID:'
+    person_id = gets.chomp.to_i
+
     person = @people.find { |p| p.id == person_id }
 
     if person.nil?

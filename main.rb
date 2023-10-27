@@ -1,8 +1,4 @@
 require_relative 'app'
-require_relative 'create_person'
-require_relative 'create_book'
-require_relative 'create_rental'
-require_relative 'list_rentals_for_person'
 
 class Main
   def initialize
@@ -60,19 +56,19 @@ class Main
   end
 
   def create_new_person
-    create_person(@app)
+    @app.create_person
   end
 
   def create_new_book
-    create_book(@app)
+    @app.create_book
   end
 
   def create_new_rental
-    create_rental(@app)
+    @app.create_rental
   end
 
   def list_rentals_for_person
-    list_rentals_for_person_menu
+    @app.list_rentals_for_person
   end
 
   def quit
