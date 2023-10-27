@@ -16,14 +16,14 @@ class App
   def list_all_books
     puts 'List of all books:'
     @books.each do |book|
-      puts "Title: #{book.title}, Author: #{book.author}"
+      puts "Title: \"#{book.title}\", Author: #{book.author}"
     end
   end
 
   def list_all_people
     puts 'List of all people:'
     @people.each do |person|
-      puts "#{person.class}: Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+      puts "[#{person.class}]: Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
     end
   end
 

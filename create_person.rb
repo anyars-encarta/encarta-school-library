@@ -3,7 +3,7 @@ require_relative 'teacher'
 require_relative 'classroom'
 
 def create_person(app)
-  puts 'What is the person type? student (1) teacher (2):'
+  puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
   type = gets.chomp.to_i
 
   puts 'Enter the person\'s name:'
