@@ -1,82 +1,83 @@
-require './person'
-require './book'
-require './rental'
+require_relative 'book'
+require_relative 'person'
+require_relative 'rental'
+require_relative 'student'
+require_relative 'teacher'
 
 class App
+  attr_accessor :books, :people, :rentals
+
   def initialize
-    @people = []
     @books = []
+    @people = []
     @rentals = []
   end
 
   def list_all_books
     puts 'List of all books:'
     @books.each do |book|
-      puts "#{book.title} by #{book.author}"
+      puts "Title: #{book.title}, Author: #{book.author}"
     end
   end
 
   def list_all_people
     puts 'List of all people:'
     @people.each do |person|
-      puts "#{person.name} (#{person.class})"
+      puts "#{person.class}: Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
     end
   end
 
-  def create_person(name, age, role, classroom = nil)
-    if role == 'teacher'
-      person = Teacher.new(age, name)
-    elsif role == 'student'
-      person = Student.new(age, classroom, name)
+  def create_person(age, name, options = {})
+    parent_permission = options.fetch(:parent_permission, true)
+    type = options.fetch(:type, 'student')
+    classroom = options.fetch(:classroom, nil)
+    specialization = options.fetch(:specialization, nil)
+
+    if type == 'student'
+      person = Student.new(age, classroom, name, parent_permission: parent_permission)
+    elsif type == 'teacher'
+      person = Teacher.new(age, specialization, name, parent_permission: parent_permission)
     else
-      puts "Invalid role. Please choose 'teacher' or 'student'."
+      puts 'Invalid person type'
       return
     end
 
     @people << person
-    puts "Created #{person.class}: #{person.name} successfully!"
+    puts "#{person.class} #{person.name} created with ID: #{person.id}"
   end
 
   def create_book(title, author)
     book = Book.new(title, author)
     @books << book
-    puts "Created book: #{book.title} by #{book.author} successfully!"
+    puts "Book created with title: #{book.title}, author: #{book.author}"
   end
 
-  def create_rental(person_id, book_id, date)
-    person = find_person_by_id(person_id)
-    book = find_book_by_id(book_id)
+  def create_rental(person_id, book_title, book_author, date)
+    person = @people.find { |p| p.id == person_id }
+    book = @books.find { |b| b.title == book_title && b.author == book_author }
 
-    if person && book
-      rental = Rental.new(date, book, person)
-      @rentals << rental
-      puts "Created rental for #{person.name}: #{book.title} (#{date}) successfully!"
-    else
-      puts 'Person ID or Book ID not found.'
+    if person.nil? || book.nil?
+      puts 'Person or book not found'
+      return
     end
+
+    rental = Rental.new(date, book, person)
+    @rentals << rental
+    puts "Rental created for book: #{book.title}, person: #{person.name}, date: #{rental.date}"
   end
 
   def list_rentals_for_person(person_id)
-    person = find_person_by_id(person_id)
+    person = @people.find { |p| p.id == person_id }
 
-    if person
-      puts "Rentals for #{person.name}:"
-      rentals = @rentals.select { |rental| rental.person == person }
-      rentals.each do |rental|
-        puts "#{rental.book.title} (#{rental.date})"
-      end
-    else
-      puts 'Person ID not found.'
+    if person.nil?
+      puts 'Person not found'
+      return
     end
-  end
 
-  private
-
-  def find_person_by_id(person_id)
-    @people.find { |person| person.id == person_id }
-  end
-
-  def find_book_by_id(book_id)
-    @books.find { |book| book.id == book_id }
+    puts "Rentals for person #{person.name}:"
+    rentals = @rentals.select { |r| r.person == person }
+    rentals.each do |rental|
+      puts "Book: #{rental.book.title}, Date: #{rental.date}"
+    end
   end
 end
