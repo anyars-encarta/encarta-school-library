@@ -7,6 +7,15 @@ require_relative 'list_rentals_for_person'
 class Main
   def initialize
     @app = App.new
+    @choices = {
+      1 => method(:list_all_books),
+      2 => method(:list_all_people),
+      3 => method(:create_new_person),
+      4 => method(:create_new_book),
+      5 => method(:create_new_rental),
+      6 => method(:list_rentals_for_person),
+      7 => method(:quit)
+    }
   end
 
   def main
@@ -35,25 +44,44 @@ class Main
   end
 
   def handle_choice(choice)
-    case choice
-    when 1
-      @app.list_all_books
-    when 2
-      @app.list_all_people
-    when 3
-      create_person(@app)
-    when 4
-      create_book(@app)
-    when 5
-      create_rental(@app)
-    when 6
-      list_rentals_for_person(@app)
-    when 7
-      puts 'Thank you for using the School Management System. Goodbye!'
-      exit
+    if @choices.key?(choice)
+      @choices[choice].call
     else
-      puts 'Invalid choice. Please try again.'
+      invalid_choice
     end
+  end
+
+  def list_all_books
+    @app.list_all_books
+  end
+
+  def list_all_people
+    @app.list_all_people
+  end
+
+  def create_new_person
+    create_person(@app)
+  end
+
+  def create_new_book
+    create_book(@app)
+  end
+
+  def create_new_rental
+    create_rental(@app)
+  end
+
+  def list_rentals_for_person
+    list_rentals_for_person(@app)
+  end
+
+  def quit
+    puts 'Thank you for using Encarta School Library. Goodbye!'
+    exit
+  end
+
+  def invalid_choice
+    puts 'Invalid choice. Please try again.'
   end
 end
 
