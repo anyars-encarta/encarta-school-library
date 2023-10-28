@@ -1,10 +1,10 @@
-require_relative 'book'
-require_relative 'person'
-require_relative 'rental'
-require_relative 'student'
-require_relative 'teacher'
-require_relative 'create_person'
-require_relative 'create_rental'
+require_relative 'lib/book'
+require_relative 'lib/person/person'
+require_relative 'lib/rental'
+require_relative 'lib/person/student'
+require_relative 'lib/person/teacher'
+require_relative 'lib/person/create_person'
+require_relative 'lib/create_rental'
 
 class App
   attr_accessor :books, :people, :rentals
