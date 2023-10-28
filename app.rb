@@ -79,7 +79,7 @@ class App
     else
       puts 'Enter the rental date (YYYY-MM-DD):'
       date = gets.chomp
-      rental = Rental.new(date, selected_book, selected_person)
+      rental = Rental.new(date, book, person)
     end
     @rentals << rental
     puts "Rental created for book: #{selected_book.title}, person: #{selected_person.name}, date: #{rental.date}"
