@@ -1,9 +1,7 @@
 def load_rentals
   file_path = "#{DATA_PATH}/rentals.json"
 
-  unless File.exist?(file_path)
-    File.write(file_path, '[]')
-  end
+  File.write(file_path, '[]') unless File.exist?(file_path)
 
   json_data = File.read(file_path)
   return if json_data.empty?

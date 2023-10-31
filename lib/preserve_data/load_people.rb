@@ -4,9 +4,7 @@ require_relative '../person/teacher'
 def load_people
   file_path = "#{DATA_PATH}/people.json"
 
-  unless File.exist?(file_path)
-    File.write(file_path, '[]')
-  end
+  File.write(file_path, '[]') unless File.exist?(file_path)
 
   json_data = File.read(file_path)
   return if json_data.empty?
