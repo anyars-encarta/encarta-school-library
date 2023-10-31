@@ -2,6 +2,14 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative '../classroom'
 
+# def preserve_student(name, age)
+#   Student.new(age, name)
+# end
+
+# def preserve_teacher(name, age)
+#   Teacher.new(age, name)
+# end
+
 def create_student(name, age)
   puts 'Enter the person\'s classroom:'
   classroom_label = gets.chomp

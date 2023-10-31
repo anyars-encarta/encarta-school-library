@@ -1,3 +1,6 @@
+require_relative '../lib/person/student'
+require_relative '../lib/person/teacher'
+
 def load_poeple
   file_path = "#{DATA_PATH}/people.json"
   return unless File.exist?(file_path)
