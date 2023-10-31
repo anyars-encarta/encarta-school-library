@@ -28,6 +28,6 @@ end
 #   exit
 # end
 
-# def invalid_choice
-#   puts 'Invalid choice. Please try again.'
-# end
+def invalid_choice
+  puts 'Invalid choice. Please try again.'
+end
