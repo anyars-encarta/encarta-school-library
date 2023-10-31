@@ -25,4 +25,3 @@ class Main
 end
 
 Main.new.main
-# After checking the main.rb file, it already follows the requirements for this milestone
