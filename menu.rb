@@ -15,13 +15,13 @@ def display_menu
   puts '=================================='
 end
 
-# def handle_choice(choice)
-#   if @choices.key?(choice)
-#     @choices[choice].call
-#   else
-#     invalid_choice
-#   end
-# end
+def handle_choice(choice)
+  if @choices.key?(choice)
+    @choices[choice].call
+  else
+    invalid_choice
+  end
+end
 
 def quit
   puts 'Thank you for using Encarta School Library. Goodbye!'
