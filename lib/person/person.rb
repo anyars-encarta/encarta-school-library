@@ -25,10 +25,11 @@ class Person < Nameable
   def to_json(*args)
     {
       id: @id,
+      type: self.class.to_s.downcase,
       age: @age,
       name: @name,
       rentals: @rentals.map(&:to_json)
-  }.to_json(*args)
+    }.to_json(*args)
   end
 
   def self.from_json(json)

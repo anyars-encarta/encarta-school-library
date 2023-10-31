@@ -9,6 +9,8 @@ class Rental
     @person = person
 
     book.rentals << self
+    return unless person
+
     person.rentals << self
   end
 
@@ -24,7 +26,6 @@ class Rental
     data = JSON.parse(json)
     book = Book.from_json(data['book'])
     person = Person.from_json(data['person'])
-    rental = Rental.new(data['date'], book, person)
-    rental
+    Rental.new(data['date'], book, person)
   end
 end

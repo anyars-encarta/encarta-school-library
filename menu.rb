@@ -1,3 +1,5 @@
+require_relative 'app'
+
 private
 
 def display_menu
@@ -24,6 +26,7 @@ def handle_choice(choice)
 end
 
 def quit
+  @app.save_data
   puts 'Thank you for using Encarta School Library. Goodbye!'
   exit
 end
