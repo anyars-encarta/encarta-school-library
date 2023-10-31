@@ -10,7 +10,7 @@ def create_student(name, age)
   parent_permission_input = gets.chomp.downcase
   parent_permission = parent_permission_input == 'y'
 
-  # Load existing people from the JSON file
+  # Load existing students from the JSON file
   existing_ids = @people.map(&:id)
 
   unique_id = generate_unique_id_for_new_person(existing_ids)
@@ -25,7 +25,7 @@ def create_teacher(name, age)
   puts 'Enter the person\'s specialization:'
   specialization = gets.chomp
 
-  # Load existing people from the JSON file
+  # Load existing teachers from the JSON file
   existing_ids = @people.map(&:id)
 
   unique_id = generate_unique_id_for_new_person(existing_ids)
