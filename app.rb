@@ -23,17 +23,17 @@ class App
     load_data
   end
 
-  # def load_data
-  #   load_books
-  #   load_people
-  #   load_rentals
-  # end
+  def load_data
+    load_books
+    load_people
+    load_rentals
+  end
 
-  # def save_data
-  #   save_books
-  #   save_people
-  #   save_rentals
-  # end
+  def save_data
+    save_books
+    save_people
+    save_rentals
+  end
 
   def list_all_books
     puts 'List of all books:'
