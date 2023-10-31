@@ -23,10 +23,10 @@ end
 #   end
 # end
 
-# def quit
-#   puts 'Thank you for using Encarta School Library. Goodbye!'
-#   exit
-# end
+def quit
+  puts 'Thank you for using Encarta School Library. Goodbye!'
+  exit
+end
 
 def invalid_choice
   puts 'Invalid choice. Please try again.'
