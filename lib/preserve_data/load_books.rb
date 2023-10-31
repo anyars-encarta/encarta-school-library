@@ -2,7 +2,9 @@ DATA_PATH = './data'.freeze
 
 def load_books
   file_path = "#{DATA_PATH}/books.json"
-  nil unless File.exist?(file_path)
+  unless File.exist?(file_path)
+    File.write(file_path, '[]')
+  end
 
   json_data = File.read(file_path)
   return if json_data.empty?
