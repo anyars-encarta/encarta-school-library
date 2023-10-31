@@ -6,12 +6,12 @@ require_relative 'lib/person/student'
 require_relative 'lib/person/teacher'
 require_relative 'lib/person/create_person'
 require_relative 'lib/create_rental'
-require_relative 'preserve_data/load_books'
-require_relative 'preserve_data/load_people'
-require_relative 'preserve_data/load_rentals'
-require_relative 'preserve_data/save_books'
-require_relative 'preserve_data/save_people'
-require_relative 'preserve_data/save_rentals'
+# require_relative 'lib/preserve_data/load_books'
+# require_relative 'lib/preserve_data/load_people'
+# require_relative 'lib/preserve_data/load_rentals'
+# require_relative 'lib/preserve_data/save_books'
+require_relative 'lib/preserve_data/save_people'
+require_relative 'lib/preserve_data/save_rentals'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -23,17 +23,17 @@ class App
     load_data
   end
 
-  def load_data
-    load_books
-    load_poeple
-    load_rentals
-  end
+  # def load_data
+  #   load_books
+  #   load_people
+  #   load_rentals
+  # end
 
-  def save_data
-    save_books
-    save_people
-    save_rentals
-  end
+  # def save_data
+  #   save_books
+  #   save_people
+  #   save_rentals
+  # end
 
   def list_all_books
     puts 'List of all books:'
