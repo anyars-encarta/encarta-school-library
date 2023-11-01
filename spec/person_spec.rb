@@ -5,7 +5,7 @@ RSpec.describe Person do
   let(:person) { Person.new(25, 'John Doe', parent_permission: true) }
 
   describe '#initialize' do
-    it 'sets the age, name, and rentals attributes' do
+    it 'sets the age, name, and rentals attributes.' do
       expect(person.age).to eq(25)
       expect(person.name).to eq('John Doe')
       expect(person.rentals).to eq([])
