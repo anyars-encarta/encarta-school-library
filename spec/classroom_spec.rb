@@ -2,7 +2,6 @@ require 'rspec'
 require_relative '../lib/classroom'
 require_relative '../lib/person/person'
 
-
 RSpec.describe Classroom do
   let(:classroom) { Classroom.new('Math') }
   let(:student1) { Person.new(16, 'John Doe', parent_permission: true) }
