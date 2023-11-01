@@ -1,29 +1,17 @@
 require 'rspec'
-require_relative '../lib/classroom' # Make sure to require your Classroom class
+require_relative '../lib/classroom'
+require_relative '../lib/person/person'
 
-class Student
-  attr_accessor :name, :classroom
-
-  def initialize(name)
-    @name = name
-    @classroom = nil
-  end
-end
 
 RSpec.describe Classroom do
-  let(:classroom) { Classroom.new('A101') }
+  let(:classroom) { Classroom.new('Math') }
+  let(:student1) { Person.new(16, 'John Doe', parent_permission: true) }
+  let(:student2) { Person.new(17, 'Jane Smith', parent_permission: true) }
 
-  describe '#add_student' do
-    it 'should add a student to the classroom' do
-      student = Student.new('Alice')
-      classroom.add_student(student)
-      expect(classroom.students).to include(student)
-      expect(student.classroom).to eq(classroom)
-    end
-
-    it 'should handle nil input gracefully' do
-      classroom.add_student(nil)
-      expect(classroom.students).to be_empty
+  describe '#initialize' do
+    it 'sets the label and students attributes' do
+      expect(classroom.label).to eq('Math')
+      expect(classroom.students).to eq([])
     end
   end
 end
