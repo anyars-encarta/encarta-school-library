@@ -13,7 +13,7 @@ RSpec.describe Teacher do
   end
 
   describe '#can_use_services?' do
-    it 'returns true, indicating that a teacher can use services' do
+    it 'returns true, indicating that a teacher can use services.' do
       expect(teacher.can_use_services?).to be(true)
     end
   end
