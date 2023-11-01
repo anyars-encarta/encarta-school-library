@@ -32,7 +32,7 @@ class Person < Nameable
       type: self.class.to_s.downcase,
       age: @age,
       name: @name,
-      rentals: @rentals.map(&:to_json)
+      rentals: @rentals.map { |rental| { date: rental.date, book_id: rental.book.id, person_id: rental.person.id } }
     }.to_json(*args)
   end
 
