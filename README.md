@@ -110,9 +110,11 @@ Install this project with:
 
 ### Usage
 
-To run the project, ensure to install:
+To run the project, run:
 
-> Ruby
+```sh
+  ruby main.rb
+```
 
 ### Run tests
 
