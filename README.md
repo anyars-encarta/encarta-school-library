@@ -40,7 +40,7 @@
 # 📖 [Encarta School Library] <a name="about-project"></a>
 
 
-**Encarta School Library** is a School Library project for adding Teachers, Students, Books, and creating Rentals.
+**Encarta School Library** is a School Library project for adding Teachers, Students, Books, and creating Rentals. It is a commandline app.
 
 ## 🛠 Built With <a name="built-with"></a>
 
