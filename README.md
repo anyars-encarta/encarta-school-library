@@ -42,8 +42,6 @@
 
 **Encarta School Library** is a School Library project for adding Teachers, Students, Books, and creating Rentals. It is a command line app.
 
-
-
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
